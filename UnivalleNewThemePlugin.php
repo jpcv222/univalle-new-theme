@@ -2,7 +2,7 @@
 
 import('lib.pkp.classes.plugins.ThemePlugin');
 
-class UnivalleComedicaThemePlugin extends ThemePlugin {
+class UnivalleNewThemePlugin extends ThemePlugin {
 
 	public function __construct()
 	{
@@ -22,7 +22,7 @@ class UnivalleComedicaThemePlugin extends ThemePlugin {
 	 */
 	public function init() {
 		$base_url = Config::getVar('general', 'base_url');
-		$lessVariables = ["@theme_name: 'univalle-comedica';", "@base_url: '$base_url';"];
+		$lessVariables = ["@theme_name: 'univalle-new-theme';", "@base_url: '$base_url';"];
 		$this->setParent('defaultthemeplugin');
 		$this->addStyle(
 			'child-stylesheet',
@@ -48,7 +48,7 @@ class UnivalleComedicaThemePlugin extends ThemePlugin {
 	 * @return string
 	 */
 	function getDisplayName() {
-		return 'Tema Univalle Comedica';
+		return 'Tema Nuevo Univalle';
 	}
 
 	/**

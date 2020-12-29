@@ -2,8 +2,8 @@
 
 
 
-require_once('UnivalleComedicaThemePlugin.php');
+require_once('UnivalleNewThemePlugin.php');
 
-return new UnivalleComedicaThemePlugin();
+return new UnivalleNewThemePlugin();
 
 ?>
