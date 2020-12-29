@@ -1,0 +1,64 @@
+/**
+ * @file  plugins/themes/default/styles/pages/indexJournal.less
+ *
+ * Copyright (c) 2014-2018 Simon Fraser University
+ * Copyright (c) 2003-2018 John Willinsky
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ * @brief Styles applying to the front page of the journal
+ *
+ * @author Juan Pablo Castro 2019
+ * GitHub jpcv222
+ *
+ */
+
+
+.obj_article_summary > .header-article > .title a {
+   color: @blackUnivalle;
+   font-size: 16px;
+}
+
+.galleys_links .pdf, .galleys_links .file, .galleys_links .xml {
+    color: @rojoUnivalle;
+    font-family: Verdana;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #E9E9E9;
+    border: solid @rojoUnivalle 1px !important;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    line-height: 1.8em;    
+    letter-spacing: -0.05em;
+ }
+ 
+ .galleys_links .pdf:hover, .galleys_links .pdf:focus, .galleys_links .file:hover, .galleys_links .file:focus, .galleys_links .xml:hover, .galleys_links .xml:focus {
+    background: @rojoUnivalle;
+    text-decoration: none;
+    color: #ffffff !important;
+ }
+
+ .current_issue_title{
+   font-size: 1.6em;
+   margin: 0px -15px !important;
+}
+
+.home-copyright {
+
+   background: #303030;
+   font-size: 13px;
+   color: #fff;
+
+}
+
+.home-copyright a {
+   color: #FBB040 !important;
+}
+
+.cmp_breadcrumbs{
+   border-top: 3px red solid;
+   padding-right: 56px;
+   height: 25px;
+}

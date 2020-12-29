@@ -1,0 +1,61 @@
+/**
+ * @file styles/keywords_list.less
+ *
+ * Author: 2019 Juan Pablo Castro
+ * GitHub: jpcv222
+ * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ *
+ */
+
+#keywords_list {
+    counter-reset: li; 
+    list-style: none; 
+    *list-style: decimal; 
+    padding: 0;
+    margin: 2em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+#keywords_list li{
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em .8em;
+    margin: .5em 0 .5em 2.5em;
+    background: #ddd;
+    text-decoration: none;
+    transition: all .3s ease-out;   
+}
+
+#keywords_list li:hover{
+    background: #eee;
+}   
+
+#keywords_list li:before{
+    content: counter(li);
+    counter-increment: li;
+    position: absolute; 
+    left: -2.5em;
+    top: 50%;
+    margin-top: -1em;
+    background: #c0baba;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+#keywords_list li:after{
+    position: absolute; 
+    content: '';
+    border: .5em solid transparent;
+    left: -1em;
+    top: 50%;
+    margin-top: -.5em;
+    transition: all .3s ease-out;               
+}
+
+#keywords_list li:hover:after{
+    left: -.5em;
+    border-left-color: #c0baba;             
+}
