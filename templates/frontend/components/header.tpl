@@ -24,7 +24,7 @@
 {/strip}
 <!DOCTYPE html>
 <html lang="{$currentLocale|replace:" _":"-"}" xml:lang="{$currentLocale|replace:" _":"-"}">
-{if !$pageTitleTranslated}{translate|assign:"pageTitleTranslated" key=$pageTitle}{/if}
+{if !$pageTitleTranslated}{capture assign="pageTitleTranslated"}{translate key=$pageTitle}{/capture}{/if}
 {include file="frontend/components/headerHead.tpl"}
 
 <body class="pkp_page_{$requestedPage|escape|default:" index"} pkp_op_{$requestedOp|escape|default:"index"}{if
@@ -57,11 +57,13 @@
 										{else}
 										<div class="pkp_site_name">
 											{/if}
-											{if $currentContext && $multipleContexts}
-											{url|assign:"homeUrl" page="index" router=$smarty.const.ROUTE_PAGE}
-											{else}
-											{url|assign:"homeUrl" context="index" router=$smarty.const.ROUTE_PAGE}
-											{/if}
+											  {capture assign="homeUrl"}
+                                    {if $currentJournal && $multipleContexts}
+                                        {url page="index" router=$smarty.const.ROUTE_PAGE}
+                                    {else}
+                                        {url context="index" router=$smarty.const.ROUTE_PAGE}
+                                    {/if}
+						        {/capture}
 											{if $displayPageHeaderLogo && is_array($displayPageHeaderLogo)}
 											<a href="{$homeUrl}" class="is_img">
 												<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"

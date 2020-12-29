@@ -95,7 +95,7 @@
 			{* DOI (requires plugin) *}
 			{foreach from=$pubIdPlugins item=pubIdPlugin}
 				{if $pubIdPlugin->getPubIdType() != 'doi'}
-					{php}continue;{/php}
+					{continue}
 				{/if}
 				{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 				{if $pubId}
@@ -152,7 +152,7 @@
 										</a>
 									</li>
 							{/if}
-							{if $parsedCitations->getCount() || $article->getCitations()}
+							{if $parsedCitations || $publication->getData('citationsRaw')}
 								
 									<li role="presentation" >
 										<a href="#citations"  role="tab" id="citations-tab" data-toggle="tab" aria-controls="citations">
@@ -286,13 +286,13 @@
 			{/if}
 
 			{* References *}
-			{if $parsedCitations->getCount() || $article->getCitations()}
+			{if $parsedCitations || $publication->getData('citationsRaw')}
 				<div id="citations" role="tabpanel" class="amx-div-tabs tab-pane fade" aria-labelledby="citations-tab">
 					<h3 class="label label_h3">
 						{translate key="submission.citations"}
 					</h3>
 					<div class="value">
-						{if $parsedCitations->getCount()}
+						{if $parsedCitations}
 							{iterate from=parsedCitations item=parsedCitation}
 								<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html} {call_hook name="Templates::Article::Details::Reference" citation=$parsedCitation}</p>
 							{/iterate}
@@ -461,7 +461,7 @@
 			{* PubIds (requires plugins) *}
 			{foreach from=$pubIdPlugins item=pubIdPlugin}
 				{if $pubIdPlugin->getPubIdType() == 'doi'}
-					{php}continue;{/php}
+					{continue}
 				{/if}
 				{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 				{if $pubId}
@@ -485,7 +485,7 @@
 
 				{foreach from=$pubIdPlugins item=pubIdPlugin}
 				{if $pubIdPlugin->getPubIdType() != 'doi'}
-					{php}continue;{/php}
+					{continue}
 				{/if}
 				{assign var=pubId value=$article->getStoredPubId($pubIdPlugin->getPubIdType())}
 				{if $pubId}
